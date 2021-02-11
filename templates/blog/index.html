@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+   
+  <title>GASHNIX</title>
+</head>
+<body style="margin:20px;">
+
+  <div class="alert alert-dark" role="alert">
+      <span style="font-size:30px;">Bitcoin Latest Price</span> <span style="font-size:15px;">by <a href="http://6line.ir" target="_blank">GashniX</a></span>
+  </div>
+
+  <div class="list-group">
+      <div class="list-group-item list-group-item-primary">
+          <div class="row">
+              <div class="col-md-3">
+                  <label>ریال</label>
+              </div>
+              <div class="col-md-3">
+                  <label>دلار</label>
+              </div>
+              <div class="col-md-3">
+                  <label>بارگزاری</label>
+              </div>
+          </div>
+      </div>
+      
+      <div class="list-group-item list-group-item-{% if crypto_data.time.updated == '-'%}danger{% else %}success{% endif %}">
+          <div class="row">
+              <div class="col-md-3">
+                  {{crypto_data.bpi.IRR.rate}}
+              </div>
+              <div class="col-md-3">
+                {{crypto_data.bpi.USD.rate}}
+              </div>
+              <div class="col-md-3">
+                {{crypto_data.time.updated}}
+              </div>
+          </div>
+      </div>
+     
+  </div>
+</body>
+</html>
