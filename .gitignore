@@ -33,11 +33,11 @@ pip-delete-this-directory.txt
 *.pyc
 __pycache__/
 
-settings.py
 
+# settings.py
 media/
 .env
-db.sqlite3
+# db.sqlite3
 
 # Only for Development only
 **/migrations/

@@ -1,0 +1,12 @@
+{% extends './base.html' %}  
+{% load crispy_forms_tags %}
+{% block content %}  
+
+  <h1>Home Page Acc</h1>
+
+<div>
+    <a class="btn-lg btn-primary" href="{% url 'accounts:login' %}">Login</button></a>
+    <a class="btn-lg btn-danger" href="{% url 'accounts:signup' %}">Singup</button></a>
+</div>
+
+{% endblock %}
