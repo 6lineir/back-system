@@ -3,6 +3,35 @@
 <h1>Profile Page</h1>
 <br/>
 
-  <h2>Profile User Logined = <span class="btn-success">{{user.username }}</span></h2>
-
+  <h2>Profile User Logined = <span class="btn-warning">{{user.username }}</span></h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-sm">
+      <div class="col row">
+      <h3>First Name</h3>
+      <input type="text" name="first_name" value="{{ user.first_name }}" id="id_first_name">
+      <h3>Last Name</h3>
+      <input type="text" name="last_name" value="{{ user.last_name }}"  id="id_last_name">
+      <h3>Email</h3>
+      <input type="email" name="email" value="{{ user.email }}" id="id_email">
+      </div><br/>
+      <div class="col row">
+      <h3>Phone</h3>
+      <input type="text" name="phone" value="{{ user.phone }}" id="id_phone">
+      <h3>Tele phone</h3>
+      <input type="text" name="tphone" value="{{ user.tphone }}" id="id_tphone">
+      <h3>Telegram</h3>
+      <input type="text" name="telegram" value="{{ user.telegram }}" id="id_telegram">
+      </div><br/>
+      <div class="col row">
+      <h3>Code Melli</h3>
+      <input type="text" name="codeMelli" value="{{ user.codeMelli }}" id="id_codeMelli">
+      <h3>Address</h3>
+      <input type="text" name="addres" value="{{ user.addres }}" id="id_addres">
+      <h3>Refferall</h3>
+      <input type="text" name="referallcode" value="{{ user.referallcode }}" id="id_referallcode">
+      </div><br/>
+      <button class="btn-lg btn-success" type="submit">Update Profile</button>
+    </div>
+  </form>
 {% endblock %}

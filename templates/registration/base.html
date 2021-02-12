@@ -9,12 +9,13 @@
 
 </head>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     {% if user.is_authenticated %}
     <form method = "POST" action="{% url 'accounts:logout' %}">
       {% csrf_token %}
     <input class ="btn btn-danger" type="submit" value= "Logout" />
     </form>
+    <h5>Username :</h5>
     <span class="btn-success">{{user.username }}</span>
     {% else %}
     <a class="btn-lg btn-primary" href="{% url 'accounts:login' %}">Login</a>

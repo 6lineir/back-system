@@ -8,6 +8,7 @@
 <br/>
 {% endif %}
 
+<a class="btn-lg btn-danger" href="{% url 'accounts:signup' %}">Singup</button></a>
 <h1>Login!</h1>
 
 <form method = "POST" action="{% url 'accounts:login' %}">
@@ -22,6 +23,7 @@
     <br/>
     <input class ="btn btn-primary" type="submit" value= "Login" />
     <br/>
+    
 </form>
 
 {% endblock %}
