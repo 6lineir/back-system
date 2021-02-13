@@ -32,6 +32,7 @@
       <input type="text" name="referallcode" value="{{ user.referallcode }}" id="id_referallcode">
       </div><br/>
       <button class="btn-lg btn-success" type="submit">Update Profile</button>
+      <a class="btn-lg btn-dark" href="{% url 'accounts:vertify' %}">Vertify Account</a>
     </div>
   </form>
 {% endblock %}

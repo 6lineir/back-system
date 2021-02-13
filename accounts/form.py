@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from .models import User
 
-class EditProfileForm(ModelForm):
+class EditProfileForm(forms.ModelForm):
   class Meta:
     model = User
     fields = (
@@ -14,7 +14,13 @@ class EditProfileForm(ModelForm):
       "telegram",
       "codeMelli",
       "addres",
-      "imageVertify1",
-      "imageVertify2",
       "referallcode"
     )
+
+class VertifyForm(forms.ModelForm):
+    class Meta:
+      model = User
+      fields = (
+        "imageVertify1",
+         "imageVertify2"
+      )

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .form import EditProfileForm
+from .form import EditProfileForm , VertifyForm
 # Create your views here.
 def index(request):
 
@@ -51,3 +51,16 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
     return redirect('accounts:indexcc')
+
+
+
+def vertifyAccount(request):
+    if request.method == "POST":
+      form1 = VertifyForm(request.POST, request.FILES, instance=request.user )
+      if form1.is_valid():
+        form1.save()
+        return redirect('accounts:vertify')
+    else:
+      form1 = VertifyForm(instance=request.user)
+      args = {'form1': form1}
+    return render(request, "registration/vertify.html", args)

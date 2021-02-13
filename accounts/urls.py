@@ -5,6 +5,7 @@ app_name = 'accounts'
 urlpatterns = [
     path('', index, name="indexcc"),
     path('profile/', profile, name="profile"),
+    path('vertify/', vertifyAccount, name="vertify"),
     path('login/', login, name='login'),
     path('signup/', signup, name='signup'),
     path('logout/', logout, name='logout')
