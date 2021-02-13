@@ -1,8 +1,15 @@
 from django.shortcuts import render,redirect
 from .models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (
+	ListView,
+	CreateView,
+	UpdateView,
+	DeleteView
+)
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .form import EditProfileForm , VertifyForm
+from .forms import EditProfileForm , VertifyForm
 # Create your views here.
 def index(request):
 
@@ -64,3 +71,4 @@ def vertifyAccount(request):
       form1 = VertifyForm(instance=request.user)
       args = {'form1': form1}
     return render(request, "registration/vertify.html", args)
+

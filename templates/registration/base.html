@@ -17,6 +17,7 @@
     </form>
     <h5>Username :</h5>
     <span class="btn-success">{{user.username }}</span>
+    <a class="btn btn-warning" href="{% url 'accounts:profile' %}">Profile</a>
     {% else %}
     <a class="btn-lg btn-primary" href="{% url 'accounts:login' %}">Login</a>
     {% endif %}
