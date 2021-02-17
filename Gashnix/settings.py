@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Blog.apps.BlogConfig',
     'Wallet.apps.WalletConfig',
     'API.apps.ApiConfig',
+    'Support.apps.SupportConfig',
     #Pip Apps
     'rest_framework',
     'crispy_forms',
