@@ -41,11 +41,19 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'Blog.apps.BlogConfig',
     'Wallet.apps.WalletConfig',
+    'API.apps.ApiConfig',
     #Pip Apps
+    'rest_framework',
     'crispy_forms',
 
 
 ]
+
+REST_FRAMEWORK ={
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,6 +1,8 @@
-from django.urls import path
+from django.urls import path, include
+from .views import *
 
+app_name = 'API'
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-
+    path(r'users/', UserApi.as_view(), name="userApi"),
+    path(r'^users/<int:pk>', UsersApi.as_view(), name="usersApi"),
 ]
