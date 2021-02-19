@@ -10,6 +10,7 @@ from django.views.generic import (
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm , VertifyForm
+from rest_framework.authtoken.models import Token
 # Create your views here.
 def index(request):
 
@@ -46,6 +47,7 @@ def signup(request):
                 return render (request,'registration/signup.html', {'error':'Username is already taken!'})
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'],password=request.POST['password1'])
+                token = Token.objects.get_or_create(user=user) #Create Auto Token User
                 auth.login(request,user)
                 return redirect('accounts:profile')
         else:
@@ -63,12 +65,12 @@ def logout(request):
 
 def vertifyAccount(request):
     if request.method == "POST":
-      form1 = VertifyForm(request.POST, request.FILES, instance=request.user )
-      if form1.is_valid():
-        form1.save()
+      form = VertifyForm(request.POST, request.FILES, instance=request.user )
+      if form.is_valid():
+        form.save()
         return redirect('accounts:vertify')
     else:
-      form1 = VertifyForm(instance=request.user)
-      args = {'form1': form1}
+      form = VertifyForm(instance=request.user)
+      args = {'form': form}
     return render(request, "registration/vertify.html", args)
 

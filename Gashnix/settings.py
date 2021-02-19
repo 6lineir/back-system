@@ -45,12 +45,16 @@ INSTALLED_APPS = [
     'Support.apps.SupportConfig',
     #Pip Apps
     'rest_framework',
+    'rest_framework.authtoken',
     'crispy_forms',
 
 
 ]
 
 REST_FRAMEWORK ={
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.IsAuthenticatedOrReadOnly'
     ]

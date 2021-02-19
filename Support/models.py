@@ -12,3 +12,6 @@ class Ticket(models.Model):
     title = models.CharField(max_length=400)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.title
+    
