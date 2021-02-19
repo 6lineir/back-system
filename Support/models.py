@@ -12,6 +12,14 @@ class Ticket(models.Model):
     title = models.CharField(max_length=400)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
+    # randnum = models.IntegerField(default=100)
+
+    
     def __str__(self):
         return self.title
-    
+# # Add auto Number To randnum +1
+#     def create(self,*args, **kwargs):
+#         self.randnum = self.randnum +1
+#         super(Ticket, self).create(*args, **kwargs)
+        
+      

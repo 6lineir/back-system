@@ -11,3 +11,4 @@ class User(AbstractUser):
     imageVertify2 = models.ImageField(blank=True, upload_to='User/%Y/%d/')
     referallcode = models.CharField(max_length=12, blank=True)
     vip = models.BooleanField(default=False)
+    # referkey = models.IntegerField(default=1000) #auto num+1
