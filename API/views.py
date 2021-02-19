@@ -1,20 +1,26 @@
 from django.shortcuts import render, get_object_or_404
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .serializers import UserSerializer, BlogSerializer
 from accounts.models import User
 from Blog.models import BlogPost
-# Create your views here.
 
-
+# /api/users
 class UserApi(ListAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-
-class UsersApi(ListAPIView):
+# /api/users/<id>
+class UsersApi(RetrieveAPIView):
+  queryset = User.objects.all()
   serializer_class = UserSerializer
-  def get_queryset(self):
-    return User.objects.filter(pk = self.request)
 
+
+
+
+# Blog API Views /api/
 class  BlogApi(ListAPIView):
+  queryset = BlogPost.objects.all()
+  serializer_class = BlogSerializer
+# Blog API Views /api/<pk>
+class  PostApi(RetrieveAPIView):
   queryset = BlogPost.objects.all()
   serializer_class = BlogSerializer
